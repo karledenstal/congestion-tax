@@ -1,13 +1,5 @@
 import Vehicle from "../classes/vehicle";
-
-enum TollFreeVehicles {
-  Motorcycle,
-  Tractor,
-  Emergency,
-  Diplomat,
-  Foreign,
-  Military,
-}
+import { TollFreeVehicles } from "../entities/TollFreeVehicles";
 
 function getTax(vehicle: Vehicle, dates: string[]): number {
   let intervalStart: Date = new Date(dates[0]);
@@ -39,14 +31,7 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
   if (vehicle == null) return false;
   const vehicleType: string = vehicle.getVehicleType();
 
-  return (
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Tractor] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Emergency] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Diplomat] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Foreign] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Military]
-  );
+  return Object.values(TollFreeVehicles).includes(vehicleType);
 }
 
 function getTollFee(date: Date, vechicle: Vehicle): number {
