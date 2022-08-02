@@ -10,9 +10,6 @@ import Vehicle from "../../classes/vehicle";
 import { getTax } from "../../utils/congestionTaxCalculator";
 
 export const calculateTax = async (req: Request, res: Response) => {
-  console.log('params', req.params);
-  console.log('body', req.body);
-
   const body = req.body;
   const type = req.params.vehicleType.toUpperCase();
 
@@ -29,5 +26,5 @@ export const calculateTax = async (req: Request, res: Response) => {
 
   const totalFee = getTax(vehicleType, dates);
 
-  res.status(200).json(totalFee);
+  res.status(200).json({ total: totalFee, vehicleType: type });
 };
