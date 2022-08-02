@@ -52,7 +52,7 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
 function getTollFee(date: Date, vechicle: Vehicle): number {
   if (isTollFreeDate(date) || isTollFreeVehicle(vechicle)) return 0;
 
-  const hour: number = date.getHours() + 1;
+  const hour: number = date.getHours();
   const minute: number = date.getMinutes();
 
   if (hour == 6 && minute >= 0 && minute <= 29) return 8;
@@ -71,7 +71,7 @@ function getTollFee(date: Date, vechicle: Vehicle): number {
 function isTollFreeDate(date: Date): boolean {
   const year: number = date.getFullYear();
   const month: number = date.getMonth() + 1;
-  const day: number = date.getDay() + 1;
+  const day: number = date.getDay();
   const dayOfMonth: number = date.getDate();
 
   if (day == 6 || day == 0) return true;
