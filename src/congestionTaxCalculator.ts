@@ -15,7 +15,6 @@ function getTax(vehicle: Vehicle, dates: Date[]): number {
 
   for (let i = 0; i < dates.length; i++) {
     const date: Date = dates[i];
-    console.log('d', date);
     let nextFee: number = getTollFee(date, vehicle);
     let tempFee = getTollFee(intervalStart, vehicle);
 
@@ -40,8 +39,6 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
   if (vehicle == null) return false;
   const vehicleType: string = vehicle.getVehicleType();
 
-  console.log('type', vehicleType);
-
   return (
     vehicleType == TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
     vehicleType == TollFreeVehicles[TollFreeVehicles.Tractor] ||
@@ -55,7 +52,7 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
 function getTollFee(date: Date, vechicle: Vehicle): number {
   if (isTollFreeDate(date) || isTollFreeVehicle(vechicle)) return 0;
 
-  const hour: number = date.getHours();
+  const hour: number = date.getHours() + 1;
   const minute: number = date.getMinutes();
 
   if (hour == 6 && minute >= 0 && minute <= 29) return 8;
