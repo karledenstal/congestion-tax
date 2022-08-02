@@ -40,13 +40,15 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
   if (vehicle == null) return false;
   const vehicleType: string = vehicle.getVehicleType();
 
+  console.log('type', vehicleType);
+
   return (
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Tractor] ||
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Emergency] ||
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Diplomat] ||
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Foreign] ||
-    vehicleType === TollFreeVehicles[TollFreeVehicles.Military]
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Tractor] ||
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Emergency] ||
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Diplomat] ||
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Foreign] ||
+    vehicleType == TollFreeVehicles[TollFreeVehicles.Military]
   );
 }
 

@@ -1,5 +1,6 @@
 import { getTax } from "./src/congestionTaxCalculator";
 import { Car } from "./src/classes/car";
+import Motorbike from "./src/classes/motorbike";
 
 const dates: Date[] = [
   new Date("2013-01-14 21:00:00"),
@@ -20,8 +21,8 @@ const dates: Date[] = [
   new Date("2013-03-28 14:07:27"),
 ];
 
-const normalCar = new Car();
+const bike = new Motorbike();
 
-const fee = getTax(normalCar, dates);
+const bikeFee = getTax(bike, dates);
 
-console.log('fee', fee);
+console.log('bikefee', bikeFee);
