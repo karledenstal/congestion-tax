@@ -1,4 +1,4 @@
-import Vehicle from "./classes/vehicle";
+import Vehicle from "../classes/vehicle";
 
 enum TollFreeVehicles {
   Motorcycle,
@@ -9,12 +9,12 @@ enum TollFreeVehicles {
   Military,
 }
 
-function getTax(vehicle: Vehicle, dates: Date[]): number {
-  let intervalStart: Date = dates[0];
+function getTax(vehicle: Vehicle, dates: string[]): number {
+  let intervalStart: Date = new Date(dates[0]);
   let totalFee: number = 0;
 
   for (let i = 0; i < dates.length; i++) {
-    const date: Date = dates[i];
+    const date: Date = new Date(dates[i]);
     let nextFee: number = getTollFee(date, vehicle);
     let tempFee = getTollFee(intervalStart, vehicle);
 
