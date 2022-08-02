@@ -37,3 +37,9 @@ Emergency
 Diplomat
 Foreign
 ```
+
+Examples
+
+> http://localhost:9000/api/tax/car
+> http://localhost:9000/api/tax/motorcycle
+> http://localhost:9000/api/tax/tractor
