@@ -15,6 +15,7 @@ function getTax(vehicle: Vehicle, dates: Date[]): number {
 
   for (let i = 0; i < dates.length; i++) {
     const date: Date = dates[i];
+    console.log('d', date);
     let nextFee: number = getTollFee(date, vehicle);
     let tempFee = getTollFee(intervalStart, vehicle);
 
@@ -30,10 +31,9 @@ function getTax(vehicle: Vehicle, dates: Date[]): number {
     }
 
     if (totalFee > 60) totalFee = 60;
-    return totalFee;
   }
 
-  return 0;
+  return totalFee;
 }
 
 function isTollFreeVehicle(vehicle: Vehicle): boolean {
@@ -41,12 +41,12 @@ function isTollFreeVehicle(vehicle: Vehicle): boolean {
   const vehicleType: string = vehicle.getVehicleType();
 
   return (
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Tractor] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Emergency] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Diplomat] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Foreign] ||
-    vehicleType == TollFreeVehicles[TollFreeVehicles.Military]
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Motorcycle] ||
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Tractor] ||
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Emergency] ||
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Diplomat] ||
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Foreign] ||
+    vehicleType === TollFreeVehicles[TollFreeVehicles.Military]
   );
 }
 
@@ -98,3 +98,5 @@ function isTollFreeDate(date: Date): boolean {
   }
   return false;
 }
+
+export { getTax };
